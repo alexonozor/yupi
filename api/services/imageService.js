@@ -1,3 +1,11 @@
+var cloudinary = require('cloudinary');
+
+cloudinary.config({
+  cloud_name: sails.config.cloudinaryKey.cloud_name,
+  api_key:    sails.config.cloudinaryKey.api_key,
+  api_secret: sails.config.cloudinaryKey.api_secret
+});
+
 module.exports = {
   getImages: function(next) {
     Image.find().exec(function(err, images) {
@@ -6,13 +14,16 @@ module.exports = {
     });
   },
 
-  addImages: function(imageVal, next) {
-    attr = imageVal
-    attr['product'] = imageVal.product_id
-    Image.create(attr).exec(function(err, image) {
-      if(err) throw err;
-      next(image);
-    });
+  addImages: function(imageVal, file, next) {
+    cloudinary.uploader.upload(file[0].fd, function(result) {
+      attr = imageVal
+      attr['product'] = imageVal.product_id
+      attr['src'] = result.url
+      Image.create(attr).exec(function(err, image) {
+        if(err) throw err;
+        next(image);
+      });
+    })
   },
 
   showImage: function(id, next) {
@@ -25,7 +36,6 @@ module.exports = {
   },
 
   removeImage: function(id, next) {
-    console.log(id);
     Image.destroy({id: id}).exec(function(err, image) {
       if(err) throw err;
       next(image);

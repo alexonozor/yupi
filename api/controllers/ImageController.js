@@ -5,6 +5,7 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+
  module.exports = {
 
    _config: {
@@ -24,8 +25,7 @@
       if (err) {
         return res.serverError(err)
       } else {
-        var imageVal = (req.body) ? req.body : undefined;
-        imageService.addImages(imageVal, function(success) {
+        imageService.addImages(imageVal, file, function(success) {
           res.json(success);
         })
       };
@@ -41,7 +41,6 @@
 
   destory: function(req, res) {
 		var imageId = req.params;
-    console.log(imageId)
 		imageService.remove(imageId.id, function(success) {
 			res.json({ message: 'Image was successfully deleted' });
 		})

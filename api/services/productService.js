@@ -8,6 +8,7 @@ module.exports = {
   },
 
   addProduct: function(productVal, next) {
+   cloudinary.uploader.upload
     Product.create(productVal).exec(function(err, product) {
       if(err) throw err;
       next(product);
@@ -20,7 +21,7 @@ module.exports = {
       next(product);
     })
   },
-  
+
   removeProduct: function(productVal, next) {
     Product.destroy({id: productVal}).exec(function(err, product) {
       if(err) throw err;
