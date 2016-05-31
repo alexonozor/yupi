@@ -5,20 +5,27 @@ module.exports = {
       next(images);
     });
   },
+  
   addImages: function(imageVal, next) {
-    Image.create(imageVal).exec(function(err, image) {
+    attr = imageVal
+    attr['product'] = imageVal.product_id
+    Image.create(attr).exec(function(err, image) {
       if(err) throw err;
       next(image);
     });
   },
+
   showImage: function(id, next) {
-    Image.findOne({id: id}).exec(function(err, image) {
+    Image.findOne({id: id})
+    .populate('product')
+      .exec(function(err, image) {
       if(err) throw err;
       next(image);
     })
   },
+
   removeImage: function(id, next) {
-    Product.destroy({id: id}).exec(function(err, image) {
+    Image.destroy({id: id}).exec(function(err, image) {
       if(err) throw err;
       next(image);
     });

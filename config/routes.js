@@ -48,6 +48,11 @@ module.exports.routes = {
     action: 'create'
   },
 
+  'delete /products/:id': {
+    controller: 'ProductController',
+    action: 'destory'
+  },
+
   // variants routs
   'post /variants': {
     controller: 'VariantController',
@@ -76,6 +81,11 @@ module.exports.routes = {
   'get /image/:id': {
     controller: 'ImageController',
     action: 'show'
+  },
+
+  'delete /images/:id': {
+    controller: 'ImageController',
+    action: 'destroy'
   }
 
   /***************************************************************************

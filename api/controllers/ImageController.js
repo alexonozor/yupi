@@ -20,7 +20,6 @@
         return res.serverError(err)
       } else {
         var imageVal = (req.body) ? req.body : undefined;
-        return {}
         imageService.addImages(imageVal, function(success) {
           res.json(success);
         })
@@ -33,5 +32,13 @@
  		imageService.showImage(imageId.id, function(success) {
  			res.json(success);
  		})
- 	}
+ 	},
+
+  destory: function(req, res) {
+		var imageId = req.params;
+    console.log(imageId)
+		imageService.removeImage(imageId.id, function(success) {
+			res.json({ message: 'Image was successfully deleted' });
+		})
+	}
  };
