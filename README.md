@@ -1,3 +1,3 @@
 # yupi
 
-a [Sails](http://sailsjs.org) application
+Yudala central processing unit Development.
