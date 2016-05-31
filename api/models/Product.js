@@ -52,9 +52,13 @@ module.exports = {
       enum: ['Enabled', 'Disabled'],
       defaultsTo: 'Enabled'
     },
-    
+
     variants: {
       collection: 'variant',
+      via: 'product'
+    },
+    images: {
+      collection: 'image',
       via: 'product'
     }
   }

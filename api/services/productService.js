@@ -1,6 +1,6 @@
 module.exports = {
   getProducts: function(next) {
-    Product.find().populate('variants').exec(function(err, products) {
+    Product.find().populate('variants').populate('images').exec(function(err, products) {
       if(err) throw err;
       next(products);
     });
@@ -12,7 +12,7 @@ module.exports = {
     });
   },
   showProduct: function(id, next) {
-    Product.findOne({id: id}).populate('variants').exec(function(err, product) {
+    Product.findOne({id: id}).populate('images').exec(function(err, product) {
       if(err) throw err;
       next(product);
     })

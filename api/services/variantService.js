@@ -10,5 +10,11 @@ module.exports = {
       if(err) throw err;
       next(variant);
     });
+  },
+  showVariant: function(id, next) {
+    Variant.findOne({id: id}).exec(function(err, variant) {
+      if(err) throw err;
+      next(variant);
+    })
   }
 };

@@ -7,7 +7,8 @@
 
 module.exports = {
 	_config: {
-     model: 'product'
+     model: 'product',
+		 rest: false
   },
 
 	index: function(req, res) {

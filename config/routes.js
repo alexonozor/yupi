@@ -34,8 +34,48 @@ module.exports.routes = {
 
 
   'get /products': {
-    controller: 'product', 
+    controller: 'ProductController',
     action: 'index'
+  },
+
+  'get /product/:id': {
+    controller: 'ProductController',
+    action: 'show'
+  },
+
+  'post /products': {
+    controller: 'ProductController',
+    action: 'create'
+  },
+
+  // variants routs
+  'post /variants': {
+    controller: 'VariantController',
+    action: 'create'
+  },
+
+  'get /variants': {
+    controller: 'VariantController',
+    action: 'index'
+  },
+
+  'get /variants/:id': {
+    controller: 'VariantController',
+    action: 'show'
+  },
+
+  // image routes
+  'get /images': {
+    controller: 'ImageController',
+    action: 'index'
+  },
+  'post /images': {
+    controller: 'ImageController',
+    action: 'create'
+  },
+  'get /image/:id': {
+    controller: 'ImageController',
+    action: 'show'
   }
 
   /***************************************************************************

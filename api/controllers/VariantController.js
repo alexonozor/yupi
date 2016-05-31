@@ -15,12 +15,12 @@ module.exports = {
 	create: function(req, res) {
 		var variantVal = (req.body) ? req.body : undefined;
 		variantService.addVariant(variantVal, function(success) {
-			res.json(success);
+			res.json(success)
 		})
 	},
 
 	show: function(req, res) {
-		var variantId = (req.body) ? req.body.id : undefined;
+		var variantId = (req.params) ? req.params.id : undefined;
 		variantService.showVariant(variantId, function(success) {
 			res.json(success);
 		})
