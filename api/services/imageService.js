@@ -5,7 +5,7 @@ module.exports = {
       next(images);
     });
   },
-  
+
   addImages: function(imageVal, next) {
     attr = imageVal
     attr['product'] = imageVal.product_id
@@ -25,6 +25,7 @@ module.exports = {
   },
 
   removeImage: function(id, next) {
+    console.log(id);
     Image.destroy({id: id}).exec(function(err, image) {
       if(err) throw err;
       next(image);

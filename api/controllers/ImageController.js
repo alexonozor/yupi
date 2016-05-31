@@ -7,6 +7,11 @@
 
  module.exports = {
 
+   _config: {
+      model: 'image',
+ 		 rest: false
+   },
+
  	index: function(req, res) {
  		imageService.getImages(function(images) {
  			res.json(images);
@@ -37,7 +42,7 @@
   destory: function(req, res) {
 		var imageId = req.params;
     console.log(imageId)
-		imageService.removeImage(imageId.id, function(success) {
+		imageService.remove(imageId.id, function(success) {
 			res.json({ message: 'Image was successfully deleted' });
 		})
 	}
