@@ -36,5 +36,13 @@ module.exports = {
 		productService.removeProduct(productId.id, function(success) {
 			res.json({ message: 'Product was successfully deleted' });
 		})
-	}
+	},
+
+	search: function(req, res) {
+    var searchParams = req.allParams();
+    console.log(searchParams);
+    productService.search(searchParams, function(product) {
+      res.json(product);
+    })
+  }
 };

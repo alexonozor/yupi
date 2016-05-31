@@ -27,5 +27,13 @@ module.exports = {
       if(err) throw err;
       next(product)
     });
+  },
+
+  search: function(searchParams, next) {
+    var search = searchParams.title;
+    Product.find({ title: { 'like': `%${search}%` } }).exec(function(err, product) {
+      if (err) throw err;
+      next(product);
+    })
   }
 };

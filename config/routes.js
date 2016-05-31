@@ -53,6 +53,11 @@ module.exports.routes = {
     action: 'destory'
   },
 
+  'get /products/search' : {
+    controller: 'ProductController',
+    action: 'search'
+  },
+
   // variants routs
   'post /variants': {
     controller: 'VariantController',
@@ -68,7 +73,6 @@ module.exports.routes = {
     controller: 'VariantController',
     action: 'show'
   },
-
   // image routes
   'get /images': {
     controller: 'ImageController',
@@ -87,7 +91,6 @@ module.exports.routes = {
     controller: 'ImageController',
     action: 'destroy'
   }
-
   /***************************************************************************
   *                                                                          *
   * Custom routes here...                                                    *
