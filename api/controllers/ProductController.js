@@ -29,5 +29,12 @@ module.exports = {
 		productService.showProduct(productId.id, function(success) {
 			res.json(success);
 		})
+	},
+
+	destory: function(req, res) {
+		var productId = req.params;
+		productService.removeProduct(productId.id, function(success) {
+			res.json({ message: 'Product was successfully deleted' });
+		})
 	}
 };
