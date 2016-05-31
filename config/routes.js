@@ -53,6 +53,11 @@ module.exports.routes = {
     action: 'destory'
   },
 
+  'get /products/search' : {
+    controller: 'ProductController',
+    action: 'search'
+  },
+
   // variants routs
   'post /variants': {
     controller: 'VariantController',
