@@ -1,6 +1,6 @@
 var cloudinary = require('cloudinary');
 cloudinary.config({
-  cloud_name: process.env.cloud_name || sails.config.cloudinaryKey.api_key,
+  cloud_name: process.env.cloud_name || sails.config.cloudinaryKey.cloud_name,
   api_key:    process.env.api_key || sails.config.cloudinaryKey.api_key,
   api_secret: process.env.api_secret || sails.config.cloudinaryKey.api_secret
 });

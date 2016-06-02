@@ -18,10 +18,9 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html
  */
-var postgres = require('./postgres-config');
-console.log(postgres)
-module.exports.connections = {
+var local = require('./local');
 
+module.exports.connections = {
   /***************************************************************************
   *                                                                          *
   * Local disk storage for DEVELOPMENT ONLY                                  *
@@ -77,9 +76,9 @@ module.exports.connections = {
   ***************************************************************************/
   postgresql: {
     adapter: 'sails-postgresql',
-    url:  process.env.DATABASE_URL  || postgres.postgresql.url,
-    pool: process.env.DATABASE_POOL || postgres.postgresql.pool,
-    ssl:  process.env.DATABASE_SSL  || postgres.postgresql.ssl
+    url:  process.env.DATABASE_URL  || local.url,
+    pool: process.env.DATABASE_POOL || local.pool,
+    ssl:  process.env.DATABASE_SSL  || local.ssl
   }
 
 
