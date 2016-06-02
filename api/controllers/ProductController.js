@@ -40,7 +40,6 @@ module.exports = {
 
 	search: function(req, res) {
     var searchParams = req.allParams();
-    console.log(searchParams);
     productService.search(searchParams, function(product) {
       res.json(product);
     })

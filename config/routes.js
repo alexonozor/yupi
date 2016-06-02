@@ -91,6 +91,25 @@ module.exports.routes = {
   'delete /images/:id': {
     controller: 'ImageController',
     action: 'destroy'
+  },
+
+  // Admin routes
+  'get /admins': {
+    controller: 'AdminController',
+    action: 'index'
+  },
+  'post /admins': {
+    controller: 'AdminController',
+    action: 'create'
+  },
+  'get /admin/:id': {
+    controller: 'AdminController',
+    action: 'show'
+  },
+
+  'delete /admins/:id': {
+    controller: 'AdminController',
+    action: 'destroy'
   }
 
   /***************************************************************************

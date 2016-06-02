@@ -8,7 +8,6 @@ module.exports = {
   },
 
   addProduct: function(productVal, next) {
-   cloudinary.uploader.upload
     Product.create(productVal).exec(function(err, product) {
       if(err) throw err;
       next(product);
@@ -16,7 +15,7 @@ module.exports = {
   },
 
   showProduct: function(id, next) {
-    Product.findOne({id: id}).populate('images').exec(function(err, product) {
+    Product.findOne({id: id}).populate('images').populate('variants').exec(function(err, product) {
       if(err) throw err;
       next(product);
     })
