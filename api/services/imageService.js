@@ -1,7 +1,7 @@
 var cloudinary = require('cloudinary');
- console.log(process.env);
+ console.log('cloud_name', sails.config.cloudinaryKey.cloud_name, process.env.cloud_name);
 cloudinary.config({
-  cloud_name: 'sportbay-co',
+  cloud_name: sails.config.cloudinaryKey.cloud_name || process.env.cloud_name,
   api_key:    sails.config.cloudinaryKey.api_key || process.env.api_key,
   api_secret: sails.config.cloudinaryKey.api_secret || process.env.api_secret
 });
