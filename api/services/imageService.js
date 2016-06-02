@@ -40,5 +40,5 @@ module.exports = {
       if(err) throw err;
       next(image);
     });
-  }
+  },
 };

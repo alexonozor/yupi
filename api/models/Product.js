@@ -12,6 +12,13 @@ module.exports = {
       type: 'string',
       required: true
     },
+
+    admin_id: {
+      type: 'integer',
+      required: true,
+      index: true
+    },
+
     body_html: {
       type: 'text',
       required: true
@@ -51,6 +58,10 @@ module.exports = {
       type: 'string',
       enum: ['Enabled', 'Disabled'],
       defaultsTo: 'Enabled'
+    },
+
+    product: {
+      model: 'admin'
     },
 
     variants: {
