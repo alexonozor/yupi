@@ -18,7 +18,8 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html
  */
-
+var postgres = require('./postgres');
+console.log(postgres);
 module.exports.connections = {
 
   /***************************************************************************
@@ -76,10 +77,11 @@ module.exports.connections = {
   ***************************************************************************/
   postgresql: {
     adapter: 'sails-postgresql',
-    host: 'localhost',
-    user: 'obogbarealexonozor', // optional
-    database: 'yupi' //optional
+    url:  process.env.DATABASE_URL  || postgres.postgresql.url,
+    pool: process.env.DATABASE_POOL || postgres.postgresql.pool,
+    ssl:  process.env.DATABASE_SSL  || postgres.postgresql.ssl
   }
+
 
 
   /***************************************************************************
