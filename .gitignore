@@ -41,7 +41,7 @@
 
 config/local.js
 config/cloudinary.js
-config/postgres.js
+config/postgres-config.js
 
 
 

@@ -18,8 +18,8 @@
  * For more information on configuration, check out:
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.connections.html
  */
-var postgres = require('./postgres');
-console.log(postgres);
+var postgres = require('postgres-config');
+console.log(postgres)
 module.exports.connections = {
 
   /***************************************************************************
