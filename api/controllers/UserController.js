@@ -7,34 +7,34 @@
 
 module.exports = {
 	_config: {
-     model: 'admin',
+     model: 'user',
 		 rest: false
   },
 
 	index: function(req, res) {
-		adminService.getAdmins(function(admins) {
-			res.json(admins);
+		userService.getUsers(function(users) {
+			res.json(users);
 		})
 	},
 
 	create: function(req, res) {
-		var adminVal = (req.body) ? req.body : undefined;
-		adminService.addAdmin(adminVal, function(success) {
+		var userVal = (req.body) ? req.body : undefined;
+		 userService.addUser(userVal, function(success) {
 			res.json(success);
 		})
 	},
 
 	show: function(req, res) {
-		var adminId = req.params;
-		adminService.showAdmin(adminId.id, function(success) {
+		var userId = req.params;
+		userService.showUser(userId.id, function(success) {
 			res.json(success);
 		})
 	},
 
 	destory: function(req, res) {
-		var adminId = req.params;
-		adminService.removeAdmin(adminId.id, function(success) {
-			res.json({ message: 'Admin was successfully deleted' });
+		var userId = req.params;
+		userService.removeUser(userId.id, function(success) {
+			res.json({ message: 'user was successfully deleted' });
 		})
 	}
 };

@@ -16,9 +16,14 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
-
 module.exports.policies = {
 
+  ProductController: {
+      // Apply the 'isLoggedIn' policy to the 'edit' action of 'ProfileController'
+      '*': 'userPolicy'
+      // Apply the 'isAdmin' AND 'isLoggedIn' policies, in that order, to the 'create' action
+      // create: ['isAdmin', 'isLoggedIn']
+}
   /***************************************************************************
   *                                                                          *
   * Default policy for all controllers and actions (`true` allows public     *
