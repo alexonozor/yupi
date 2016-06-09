@@ -1,7 +1,7 @@
 var uuid = require('node-uuid');
 var jwt = require('jsonwebtoken');
 var nJwt = require('njwt');
-module.exports = function userAuth (req, res, next) {
+module.exports = function isLoggedIn (req, res, next) {
 
   var secretKey = uuid.v4();
   var token  = req.headers.token;

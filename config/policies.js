@@ -18,12 +18,9 @@
 
 module.exports.policies = {
 
-  ProductController: {
-      // Apply the 'isLoggedIn' policy to the 'edit' action of 'ProfileController'
-      '*': 'userPolicy'
-      // Apply the 'isAdmin' AND 'isLoggedIn' policies, in that order, to the 'create' action
-      // create: ['isAdmin', 'isLoggedIn']
-}
+  UserController: {
+    'show': ['isLoggedIn']
+ }
   /***************************************************************************
   *                                                                          *
   * Default policy for all controllers and actions (`true` allows public     *
