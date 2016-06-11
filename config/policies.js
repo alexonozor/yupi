@@ -16,9 +16,11 @@
  * http://sailsjs.org/#!/documentation/reference/sails.config/sails.config.policies.html
  */
 
-
 module.exports.policies = {
 
+  UserController: {
+    'show': ['isLoggedIn']
+ }
   /***************************************************************************
   *                                                                          *
   * Default policy for all controllers and actions (`true` allows public     *

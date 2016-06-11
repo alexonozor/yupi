@@ -17,10 +17,21 @@ module.exports = {
 		})
 	},
 
+
 	create: function(req, res) {
 		var adminVal = (req.body) ? req.body : undefined;
-		adminService.addAdmin(adminVal, function(success) {
-			res.json(success);
+		var rolesIdsInArray = adminVal.roles.split(",")
+		delete adminVal.roles
+		function stringToArray(ria) {
+			var finish = [];
+			for(var i = 0; i < rolesIdsInArray.length; i++) {
+			 finish.push(parseInt(rolesIdsInArray[i]));
+			}
+			return finish;
+		 }
+
+		adminService.addAdmin(adminVal, stringToArray(rolesIdsInArray), function(err, admin) {
+			 	res.json(admin);
 		})
 	},
 
@@ -34,7 +45,7 @@ module.exports = {
 	destory: function(req, res) {
 		var adminId = req.params;
 		adminService.removeAdmin(adminId.id, function(success) {
-			res.json({ message: 'Admin was successfully deleted' });
+			res.json({ message: 'admin was successfully deleted' });
 		})
 	}
 };

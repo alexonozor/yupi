@@ -33,6 +33,11 @@ module.exports.routes = {
   ***************************************************************************/
 
 
+  'get /': {
+    controller: 'ProductController',
+    action: 'index'
+  },
+
   'get /products': {
     controller: 'ProductController',
     action: 'index'
@@ -94,23 +99,30 @@ module.exports.routes = {
   },
 
   // Admin routes
-  'get /admins': {
-    controller: 'AdminController',
+  'get /admin': {
+    controller: 'adminController',
     action: 'index'
   },
-  'post /admins': {
-    controller: 'AdminController',
+  'post /admin': {
+    controller: 'adminController',
     action: 'create'
   },
+
   'get /admin/:id': {
-    controller: 'AdminController',
+    controller: 'adminController',
     action: 'show'
   },
 
-  'delete /admins/:id': {
-    controller: 'AdminController',
+  'delete /admin/:id': {
+    controller: 'adminController',
     action: 'destroy'
+  },
+
+  'post /authentication': {
+    controller: 'AuthenticateController',
+    action: 'login'
   }
+
 
   /***************************************************************************
   *                                                                          *

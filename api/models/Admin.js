@@ -1,35 +1,36 @@
-/**
- * Admin.js
- *
- * @description :: TODO: You might write a short summary of how this model works and what it represents here.
- * @docs        :: http://sailsjs.org/documentation/concepts/models-and-orm/models
- */
+var bcrypt = require('bcrypt');
 
-module.exports = {
+var Admin = {
+  // Enforce model schema in the case of schemaless databases
+  schema: true,
 
   attributes: {
-    email: {
-      type: "string",
-      unique: true,
-      required: true,
-      index: true
-    },
+    email     : { type: 'string', email: true, unique: true, required: true },
+    password  : { type: 'string', required: true, columnName: 'hashed_password' },
+    products  : { collection: 'Product', via: 'product' },
 
-    username: {
-      type: "string",
-      unique: true,
-      required: true,
-      index: true
+    toJSON: function() {
+      var obj = this.toObject();
+      delete obj.password
+      delete obj.hashed_password
+      return obj
     },
-
-    password: {
-      type: "string",
-      required: true
-    },
-
-    products: {
-      collection: 'product',
-      via: 'product'
+    // Add a reference to roles
+    roles: {
+      collection: 'role',
+      via: 'admins',
+      dominant: true
     }
+  },
+
+  beforeCreate: function(values, cb) {
+     bcrypt.hash(values.password, 10, function(err, hash) {
+       if (err) return cb();
+       values.password = hash;
+       console.log(values.password);
+       cb();
+     })
   }
 };
+
+module.exports = Admin;

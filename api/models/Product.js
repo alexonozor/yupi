@@ -13,7 +13,7 @@ module.exports = {
       required: true
     },
 
-    admin_id: {
+    user_id: {
       type: 'integer',
       required: true,
       index: true
