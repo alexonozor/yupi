@@ -64,19 +64,24 @@ module.exports.routes = {
   },
 
   // variants routs
-  'post /variants': {
+  'post /variant': {
     controller: 'VariantController',
     action: 'create'
   },
 
-  'get /variants': {
+  'get /variant': {
     controller: 'VariantController',
     action: 'index'
   },
 
-  'get /variants/:id': {
+  'get /variant/:id': {
     controller: 'VariantController',
     action: 'show'
+  },
+
+  'delete /variant/:id': {
+    controller: 'VariantController',
+    action: 'destory'
   },
 
   // image routes
