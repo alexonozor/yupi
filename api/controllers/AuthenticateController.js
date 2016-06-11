@@ -12,23 +12,23 @@ var bcrypt = require('bcrypt');
 module.exports = {
 	login: function(req, res) {
 		var emailParams = req.body.email;
-		User.findOne({ email: emailParams }).exec(function(err, user) {
+		Admin.findOne({ email: emailParams }).exec(function(err, admin) {
 			if (err) throw err;
-			if (!user) {
-				res.json({ error: 'User not found'});
-			} else if (user) {
+			if (!admin) {
+				res.json({ error: 'Admin not found'});
+			} else if (admin) {
 				// check if password matches
-				bcrypt.compare(req.body.password, user.password, function(err, correct) {
+				bcrypt.compare(req.body.password, admin.password, function(err, correct) {
     			if (!correct) {
 						res.json({ success: false, message: 'Wrong email or password' });
 					} else {
-						// if user is found and password is right
+						// if admin is found and password is right
 						// create a token
 						//Generate RFC-compliant UUIDs
 						var secretKey = uuid.v4();
 						//genrate a claims
 						var claims = {
-							sub: 'user' + user.id,
+							sub: 'admin' + admin.id,
 							iss: req.host + req.originalUrl,
 							permissions: 'upload-photos'
 						}
@@ -37,7 +37,7 @@ module.exports = {
 						jwt.setExpiration(new Date().getTime() + (60*60*1000));
 						var token = jwt.compact();
 						res.json({
-							user: user.email,
+							admin: admin.email,
 							token: token,
 							secret: secretKey
 						});

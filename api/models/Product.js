@@ -61,7 +61,7 @@ module.exports = {
     },
 
     product: {
-      model: 'user'
+      model: 'admin'
     },
 
     variants: {

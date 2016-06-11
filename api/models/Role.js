@@ -19,6 +19,11 @@ module.exports = {
       type: 'boolean',
       defaultsTo: true,
       index: true
+    },
+
+    admins: {
+      collection: 'admin',
+      via: 'roles'
     }
   }
 };

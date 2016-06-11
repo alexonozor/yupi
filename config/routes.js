@@ -99,22 +99,22 @@ module.exports.routes = {
   },
 
   // Admin routes
-  'get /user': {
-    controller: 'UserController',
+  'get /admin': {
+    controller: 'adminController',
     action: 'index'
   },
-  'post /user': {
-    controller: 'UserController',
+  'post /admin': {
+    controller: 'adminController',
     action: 'create'
   },
 
-  'get /user/:id': {
-    controller: 'UserController',
+  'get /admin/:id': {
+    controller: 'adminController',
     action: 'show'
   },
 
-  'delete /user/:id': {
-    controller: 'UserController',
+  'delete /admin/:id': {
+    controller: 'adminController',
     action: 'destroy'
   },
 

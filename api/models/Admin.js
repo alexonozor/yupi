@@ -1,6 +1,6 @@
 var bcrypt = require('bcrypt');
 
-var User = {
+var Admin = {
   // Enforce model schema in the case of schemaless databases
   schema: true,
 
@@ -14,6 +14,12 @@ var User = {
       delete obj.password
       delete obj.hashed_password
       return obj
+    },
+    // Add a reference to roles
+    roles: {
+      collection: 'role',
+      via: 'admins',
+      dominant: true
     }
   },
 
@@ -27,4 +33,4 @@ var User = {
   }
 };
 
-module.exports = User;
+module.exports = Admin;
