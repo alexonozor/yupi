@@ -28,6 +28,8 @@ module.exports = {
     });
   },
 
+
+
   search: function(searchParams, next) {
     var search = searchParams.title;
     Product.find({ title: { 'like': `%${search}%` } }).exec(function(err, product) {

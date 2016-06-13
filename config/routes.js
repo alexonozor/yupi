@@ -126,6 +126,37 @@ module.exports.routes = {
   'post /authentication': {
     controller: 'AuthenticateController',
     action: 'login'
+  },
+
+  //customer routes
+  'get /customer': {
+    controller: 'CustomerController',
+    action: 'index'
+  },
+
+  'get /customer/:id': {
+    controller: 'CustomerController',
+    action: 'show'
+  },
+
+  'delete /customer/:id': {
+    controller: 'CustomerController',
+    action: 'destory'
+  },
+
+  'post /customer': {
+    controller: 'CustomerController',
+    action: 'create'
+  },
+
+  'get /customers/search': {
+    controller: 'CustomerController',
+    action: 'search'
+  },
+
+  'post /customer/:id': {
+    controller: 'CustomerController',
+    action: 'update'
   }
 
 
