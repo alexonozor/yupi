@@ -15,12 +15,12 @@ module.exports = {
 		Admin.findOne({ email: emailParams }).exec(function(err, admin) {
 			if (err) throw err;
 			if (!admin) {
-				res.json({ error: 'Admin not found'});
+				res.json(404, { error: 'Admin not found' });
 			} else if (admin) {
 				// check if password matches
 				bcrypt.compare(req.body.password, admin.password, function(err, correct) {
     			if (!correct) {
-						res.json({ success: false, message: 'Wrong email or password' });
+						res.json(400, { success: false, message: 'Wrong email or password' });
 					} else {
 						// if admin is found and password is right
 						// create a token
@@ -36,7 +36,7 @@ module.exports = {
 						var jwt = nJwt.create(claims,secretKey);
 						jwt.setExpiration(new Date().getTime() + (60*60*1000));
 						var token = jwt.compact();
-						res.json({
+						res.json(200, {
 							admin: admin.email,
 							token: token,
 							secret: secretKey

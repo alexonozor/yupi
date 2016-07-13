@@ -24,5 +24,12 @@ module.exports = {
 		variantService.showVariant(variantId, function(success) {
 			res.json(success);
 		})
+	},
+
+	destory: function(req, res) {
+		var variantId = req.params;
+		variantService.removeVariant(variantId.id, function(success) {
+			res.json({ message: 'Variant was successfully deleted' });
+		})
 	}
 };

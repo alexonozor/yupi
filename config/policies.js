@@ -18,9 +18,9 @@
 
 module.exports.policies = {
 
-  UserController: {
-    'show': ['isLoggedIn']
- }
+ //  ProductController: {
+ //    'index': ['isLoggedIn']
+ // }
   /***************************************************************************
   *                                                                          *
   * Default policy for all controllers and actions (`true` allows public     *

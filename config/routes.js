@@ -1,3 +1,4 @@
+
 /**
  * Route Mappings
  * (sails.config.routes)
@@ -53,6 +54,11 @@ module.exports.routes = {
     action: 'create'
   },
 
+  'post /products/import': {
+    controller: 'ProductController',
+    action: 'import'
+  },
+
   'delete /products/:id': {
     controller: 'ProductController',
     action: 'destory'
@@ -64,19 +70,24 @@ module.exports.routes = {
   },
 
   // variants routs
-  'post /variants': {
+  'post /variant': {
     controller: 'VariantController',
     action: 'create'
   },
 
-  'get /variants': {
+  'get /variant': {
     controller: 'VariantController',
     action: 'index'
   },
 
-  'get /variants/:id': {
+  'get /variant/:id': {
     controller: 'VariantController',
     action: 'show'
+  },
+
+  'delete /variant/:id': {
+    controller: 'VariantController',
+    action: 'destory'
   },
 
   // image routes
@@ -121,6 +132,60 @@ module.exports.routes = {
   'post /authentication': {
     controller: 'AuthenticateController',
     action: 'login'
+  },
+
+  //customer routes
+  'get /customer': {
+    controller: 'CustomerController',
+    action: 'index'
+  },
+
+  'get /customer/:id': {
+    controller: 'CustomerController',
+    action: 'show'
+  },
+
+  'delete /customer/:id': {
+    controller: 'CustomerController',
+    action: 'destory'
+  },
+
+  'post /customer': {
+    controller: 'CustomerController',
+    action: 'create'
+  },
+
+  'get /customers/search': {
+    controller: 'CustomerController',
+    action: 'search'
+  },
+
+  'post /customer/:id': {
+    controller: 'CustomerController',
+    action: 'update'
+  },
+
+  // product typeProduct
+  'get /product-types' : {
+    controller: 'ProductTypeController',
+    action: 'index'
+  },
+
+  'post /product-types' : {
+    controller: 'ProductTypeController',
+    action: 'create'
+  },
+
+  // vendor routes
+
+  'get /vendors' : {
+    controller: 'VendorController',
+    action: 'index'
+  },
+
+  'post /vendors' : {
+    controller: 'VendorController',
+    action: 'create'
   }
 
 

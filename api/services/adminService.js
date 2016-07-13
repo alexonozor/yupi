@@ -8,13 +8,15 @@ module.exports = {
   },
 
   addAdmin: function(adminVal, rolesIdsInArray, next) {
+    console.log(adminVal)
     Admin.create(adminVal).exec(function(err, admin) {
+
       if(err) throw(err);
       Admin.findOne({email: adminVal.email}).exec(function(err, fundAdmin) {
 				if (err) throw err;
 				fundAdmin.roles.add(rolesIdsInArray);
 					fundAdmin.save(function(err) {
-            if (err) throw(err);
+            // if (err) throw(err);
 						next();
 					})
 				})

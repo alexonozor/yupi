@@ -16,5 +16,12 @@ module.exports = {
       if(err) throw err;
       next(variant);
     })
-  }
+  },
+
+  removeVariant: function(variantVal, next) {
+    Variant.destroy({id: variantVal}).exec(function(err, variant) {
+      if(err) throw err;
+      next(variant)
+    });
+  },
 };
