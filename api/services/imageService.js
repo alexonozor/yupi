@@ -16,7 +16,7 @@ module.exports = {
   addImages: function(imageVal, file, next) {
     cloudinary.uploader.upload(file[0].fd, function(result) {
       attr = imageVal
-      attr['product'] = imageVal.product_id
+      attr['product'] = imageVal.product_id;
       attr['src'] = result.url
       Image.create(attr).exec(function(err, image) {
         if(err) throw err;

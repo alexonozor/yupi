@@ -1,3 +1,4 @@
+
 /**
  * Route Mappings
  * (sails.config.routes)
@@ -51,6 +52,11 @@ module.exports.routes = {
   'post /products': {
     controller: 'ProductController',
     action: 'create'
+  },
+
+  'post /products/import': {
+    controller: 'ProductController',
+    action: 'import'
   },
 
   'delete /products/:id': {
@@ -157,6 +163,17 @@ module.exports.routes = {
   'post /customer/:id': {
     controller: 'CustomerController',
     action: 'update'
+  },
+
+  // product typeProduct
+  'get /product-types' : {
+    controller: 'ProductTypeController',
+    action: 'index'
+  },
+
+  'post /product-types' : {
+    controller: 'ProductTypeController',
+    action: 'create'
   }
 
 

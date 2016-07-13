@@ -5,6 +5,8 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
+
+
 module.exports = {
 	_config: {
      model: 'product',
@@ -43,5 +45,15 @@ module.exports = {
     productService.search(searchParams, function(product) {
       res.json(product);
     })
-  }
+  },
+
+	import: function(req, res) {
+		req.file('file').upload(function(err, file) {
+			productService.uploadCsv(file[0].fd, function(err, success) {
+				res.status(200).json(success);
+			})
+		})
+	}
+
+
 };

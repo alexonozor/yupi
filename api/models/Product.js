@@ -13,7 +13,8 @@ module.exports = {
       required: true
     },
 
-    user_id: {
+
+    admin_id: {
       type: 'integer',
       required: true,
       index: true
@@ -23,6 +24,7 @@ module.exports = {
       type: 'text',
       required: true
     },
+
     product_type: {
       type: 'string',
       required: true
@@ -30,30 +32,25 @@ module.exports = {
     published_at: {
       type: 'datetime'
     },
-    published_scope:  {
-      type: 'string'
-    },
+
+    // published_scope:  {
+    //   type: 'string'
+    // },
     tags: {
-      type: 'string',
+      type: 'array',
       required: true
     },
-    meta_title_tag:  {
-      type: 'string',
-      required: true
-    },
-    meta_description: {
-      type: 'text',
-      required: true
-    },
+
     vendor: {
-      type: 'string',
+      type: 'array',
       required: true
     },
+
     visibility: {
-      type:  'string',
-      enum: ['Search', 'Catalog'],
-      defaultsTo: 'Search'
+      type:  'boolean',
+      defaultsTo: 'false'
     },
+
     status: {
       type: 'string',
       enum: ['Enabled', 'Disabled'],
@@ -64,13 +61,85 @@ module.exports = {
       model: 'admin'
     },
 
-    variants: {
-      collection: 'variant',
-      via: 'product'
-    },
+    // variants: {
+    //   type: 'variant',
+    //   via: 'product'
+    // },
+
+
     images: {
       collection: 'image',
       via: 'product'
+    },
+    //
+    price: {
+      type: 'integer',
+      required: true
+    },
+    //
+    sku: {
+      type: 'string',
+      required: true
+    },
+
+    // grams: {
+    //   type: 'integer',
+    //   required: true
+    // },
+    // inventory_policy: {
+    //   type: 'string'
+    // },
+    compare_at_price:{
+      type: 'integer',
+      required: true
+    },
+    // fulfillment_service: {
+    //   type: 'string'
+    // },
+    // inventory_management: {
+    //   type: 'string',
+    //   required: true
+    // },
+    taxable: {
+      type: 'boolean',
+      required: true,
+      defaultsTo: 'true'
+    },
+
+    barcode: {
+      type: 'string'
+    },
+
+    inventory_quantity: {
+      type: 'integer'
+    },
+    weight: {
+      type: 'integer'
+    },
+    weight_unit: {
+      type: 'string',
+      enum: ['kg', 'g'],
+      defaultsTo: 'kg'
+    },
+
+    shipping: {
+      type: 'boolean',
+      required: true,
+      defaultsTo: 'true'
+    },
+
+    meta_title: {
+      type: 'string',
+      required: true
+    },
+
+    meta_description: {
+      type: 'string',
+      required: true
+    },
+
+    ProductType: {
+      model: 'ProductType'
     }
   }
 };

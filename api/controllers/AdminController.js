@@ -31,9 +31,9 @@ module.exports = {
 		 }
 
 		adminService.addAdmin(adminVal, stringToArray(rolesIdsInArray), function(err, admin) {
-			 	res.json(admin);
-		})
-	},
+				 	res.status(200).json("Admin has been created");
+			})
+		},
 
 	show: function(req, res) {
 		var adminId = req.params;

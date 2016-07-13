@@ -9,11 +9,10 @@ module.exports = {
   attributes: {
     product_id: {
       type: 'integer',
-      required: true
+      // required: true
     },
     position: {
-      type: 'integer',
-      required: true
+      type: 'integer'
     },
     src: {
       type: 'string'

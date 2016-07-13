@@ -86,9 +86,6 @@ module.exports = {
       type: 'boolean',
       required: true,
       defaultsTo: 'true'
-    },
-    product: {
-      model: 'product'
     }
   }
 };

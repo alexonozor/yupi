@@ -21,7 +21,7 @@
 
  	create: function(req, res) {
     var imageVal = (req.body) ? req.body : undefined;
-    req.file('src').upload(function(err, file) {
+    req.file('item').upload(function(err, file) {
       if (err) {
         return res.serverError(err)
       } else {
