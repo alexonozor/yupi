@@ -140,6 +140,10 @@ module.exports = {
 
     ProductType: {
       model: 'ProductType'
+    },
+    
+    vendor: {
+      model: 'vendor'
     }
   }
 };

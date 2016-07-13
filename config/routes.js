@@ -174,6 +174,18 @@ module.exports.routes = {
   'post /product-types' : {
     controller: 'ProductTypeController',
     action: 'create'
+  },
+
+  // vendor routes
+
+  'get /vendors' : {
+    controller: 'VendorController',
+    action: 'index'
+  },
+
+  'post /vendors' : {
+    controller: 'VendorController',
+    action: 'create'
   }
 
 
