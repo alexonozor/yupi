@@ -63,6 +63,12 @@ module.exports = {
     verified_email: {
       type: 'boolean',
       defaultsTo: false
+    },
+
+    orders: {
+      collections: 'orders'
+      via: 'order'
     }
+
   }
 };
