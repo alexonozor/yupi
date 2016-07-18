@@ -66,9 +66,8 @@ module.exports = {
     },
 
     orders: {
-      collections: 'orders'
-      via: 'order'
+      collections: 'orders',
+      via: 'customer'
     }
-
   }
 };
